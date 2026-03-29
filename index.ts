@@ -1,5 +1,6 @@
 #!/usr/bin/env bun
 import { Command } from 'commander';
+import pkg from './package.json';
 import { registerAuthCommands } from './src/commands/auth.ts';
 import { registerHealthCommands } from './src/commands/health.ts';
 import { registerDagsCommands } from './src/commands/dags.ts';
@@ -17,7 +18,7 @@ const program = new Command();
 program
   .name('desi')
   .description('CLI for the desiBackend API')
-  .version('0.1.1', '-V, --version')
+  .version(pkg.version, '-V, --version')
   .option('-o, --output <format>', 'Output format: table, json, plain', 'table')
   .option('-p, --profile <name>', 'Use a named profile')
   .option('--api-url <url>', 'Override API base URL')
